@@ -40,26 +40,52 @@ class LinkedList {
   getLength() {
     console.log("Length: " + this.length);
   }
+
+  push(value) {
+    const newNode = new Node(value);
+    if (this.head === null && this.tail) {
+      this.head = newNode;
+      this.tail = this.head;
+    } else {
+      let temp = this.head;
+      while (temp !== null) {
+        console.log(temp);
+        console.log(temp.value);
+        console.log(temp.next);
+        if (temp.next === null) {
+          temp.next = newNode;
+          this.tail = newNode;
+          this.length = this.length + 1;
+          break;
+        }
+        temp = temp.next;
+      }
+    }
+  }
 }
 
 function test() {
-    let myLinkedList = new LinkedList(4);
-    
-    myLinkedList.getHead();
-    myLinkedList.getTail();
-    myLinkedList.getLength();
-    console.log("\nLinked List:");
-    myLinkedList.printList();
-}
+  let myLinkedList = new LinkedList(4);
 
+  myLinkedList.getHead();
+  myLinkedList.getTail();
+  myLinkedList.getLength();
+  console.log("\nLinked List:");
+  myLinkedList.printList();
+  myLinkedList.push(5);
+  myLinkedList.printList();
+  myLinkedList.getHead();
+  myLinkedList.getTail();
+  myLinkedList.getLength();
+  console.log(myLinkedList)
+}
 
 test();
 
-
-const newNode = new Node(4);
+/*const newNode = new Node(4);
 
 console.log(newNode);
 
 let myLinkedList = new LinkedList(4);
 
-console.log(myLinkedList);
+console.log(myLinkedList);*/
