@@ -49,7 +49,7 @@ class LinkedList {
 
   push(value) {
     const newNode = new Node(value);
-    if (this.head === null && this.tail) {
+    if (!this.head) {
       this.head = newNode;
       this.tail = this.head;
     } else {
