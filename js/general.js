@@ -76,15 +76,3 @@ function test() {
 
 test();
 
-/*
-    EXPECTED OUTPUT:
-    ----------------
-    Head: 1
-    Tail: 2
-    Length: 2
-
-    Linked List:
-    1
-    2
-
-*/
