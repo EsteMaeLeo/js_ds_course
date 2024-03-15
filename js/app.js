@@ -62,40 +62,48 @@ class LinkedList {
 
   pop() {
     if (!this.head) {
-      return this;
-    } else if (this.length === 1) {
-      this.makeEmpty();
-    } else {
-      let temp = this.head;
-      let before = this.head;
-      while (temp !== null) {
-        console.log(temp.value);
-        if (!temp.next) {
-          console.log("last: ", temp.next);
-          this.tail = before;
-          before.next = null;
-          this.length--;
-        }
-        before = temp;
-        temp = temp.next;
-      }
+      return null;
     }
+    let temp = this.head;
+    let before = this.head;
+    while (temp.next) {
+      before = temp;
+      temp = temp.next;
+    }
+    this.tail = before;
+    this.tail.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.makeEmpty();
+    }
+    return temp;
   }
 }
 
 function test() {
   let myLinkedList = new LinkedList(1);
-  myLinkedList.makeEmpty();
-  myLinkedList.push(1);
   myLinkedList.push(2);
 
-  myLinkedList.pop();
+  // (2) Items in LL - Returns 2 Node
+  if (myLinkedList.length !== 0) {
+    console.log(myLinkedList.pop().value);
+  } else {
+    console.log("null");
+  }
 
-  myLinkedList.getHead();
-  myLinkedList.getTail();
-  myLinkedList.getLength();
-  console.log("\nLinked List:");
-  myLinkedList.printList();
+  // (1) Item in LL - Returns 1 Node
+  if (myLinkedList.length !== 0) {
+    console.log(myLinkedList.pop().value);
+  } else {
+    console.log("null");
+  }
+
+  // (0) Items in LL - Returns null
+  if (myLinkedList.length !== 0) {
+    console.log(myLinkedList.pop().value);
+  } else {
+    console.log("null");
+  }
 }
 
 test();
