@@ -59,6 +59,28 @@ class LinkedList {
     this.length++;
     return this;
   }
+
+  pop() {
+    if (!this.head) {
+      return this;
+    } else if (this.length === 1) {
+      this.makeEmpty();
+    } else {
+      let temp = this.head;
+      let before = this.head;
+      while (temp !== null) {
+        console.log(temp.value);
+        if (!temp.next) {
+          console.log("last: ", temp.next);
+          this.tail = before;
+          before.next = null;
+          this.length--;
+        }
+        before = temp;
+        temp = temp.next;
+      }
+    }
+  }
 }
 
 function test() {
@@ -66,6 +88,8 @@ function test() {
   myLinkedList.makeEmpty();
   myLinkedList.push(1);
   myLinkedList.push(2);
+
+  myLinkedList.pop();
 
   myLinkedList.getHead();
   myLinkedList.getTail();
@@ -75,4 +99,3 @@ function test() {
 }
 
 test();
-
