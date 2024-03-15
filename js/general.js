@@ -7,7 +7,7 @@ class Node {
 
 class LinkedList {
   constructor(value) {
-    const newNode = new Node(4);
+    const newNode = new Node(value);
     this.head = newNode;
     this.tail = this.head;
     this.length = 1;
@@ -41,6 +41,12 @@ class LinkedList {
     console.log("Length: " + this.length);
   }
 
+  makeEmpty() {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
+
   push(value) {
     const newNode = new Node(value);
     if (this.head === null && this.tail) {
@@ -56,27 +62,29 @@ class LinkedList {
 }
 
 function test() {
-  let myLinkedList = new LinkedList(4);
+  let myLinkedList = new LinkedList(1);
+  myLinkedList.makeEmpty();
+  myLinkedList.push(1);
+  myLinkedList.push(2);
 
   myLinkedList.getHead();
   myLinkedList.getTail();
   myLinkedList.getLength();
   console.log("\nLinked List:");
   myLinkedList.printList();
-  myLinkedList.push(5);
-  myLinkedList.printList();
-  myLinkedList.getHead();
-  myLinkedList.getTail();
-  myLinkedList.getLength();
-  console.log(myLinkedList);
 }
 
 test();
 
-/*const newNode = new Node(4);
+/*
+    EXPECTED OUTPUT:
+    ----------------
+    Head: 1
+    Tail: 2
+    Length: 2
 
-console.log(newNode);
+    Linked List:
+    1
+    2
 
-let myLinkedList = new LinkedList(4);
-
-console.log(myLinkedList);*/
+*/
