@@ -67,6 +67,7 @@ class LinkedList {
     let temp = this.head;
     let before = this.head;
     while (temp.next) {
+      console.log(temp.value);
       before = temp;
       temp = temp.next;
     }
@@ -77,6 +78,14 @@ class LinkedList {
       this.makeEmpty();
     }
     return temp;
+  }
+
+  unshift(value) {
+    const newNode = Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    }
   }
 }
 
