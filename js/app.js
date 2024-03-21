@@ -81,7 +81,7 @@ class LinkedList {
   }
 
   unshift(value) {
-    const newNode = Node(value);
+    const newNode = new Node(value);
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
@@ -92,6 +92,31 @@ class LinkedList {
     this.length++;
     return this;
   }
+}
+
+function test2() {
+  let myLinkedList = new LinkedList(2);
+  myLinkedList.push(3);
+
+  console.log("Before unshift():");
+  console.log("-----------------");
+  myLinkedList.getHead();
+  myLinkedList.getTail();
+  myLinkedList.getLength();
+
+  console.log("\nLinked List:");
+  myLinkedList.printList();
+
+  myLinkedList.unshift(1);
+
+  console.log("\nAfter unshift():");
+  console.log("----------------");
+  myLinkedList.getHead();
+  myLinkedList.getTail();
+  myLinkedList.getLength();
+
+  console.log("\nLinked List:");
+  myLinkedList.printList();
 }
 
 function test() {
@@ -121,3 +146,4 @@ function test() {
 }
 
 test();
+test2();
