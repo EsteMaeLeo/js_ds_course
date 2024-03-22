@@ -98,9 +98,22 @@ class LinkedList {
       return null;
     }
     let temp = this.head.next;
+    if (temp) {
+      let shiftNode = this.head;
+      this.head = temp;
+      temp = null;
+      this.length--;
+      return shiftNode;
+    } else {
+      let shiftNode = this.head;
+      this.makeEmpty();
+      return shiftNode;
+    }
   }
 }
 function textShift() {
+  console.log("\Shift() function:");
+
   let myLinkedList = new LinkedList(2);
   myLinkedList.push(1);
 
