@@ -93,7 +93,7 @@ class LinkedList {
     return this;
   }
 
-  shift() {
+  shiftMyCode() {
     if (!this.head) {
       return null;
     }
@@ -110,9 +110,22 @@ class LinkedList {
       return shiftNode;
     }
   }
+  shift() {
+    if (!this.head) {
+      return null;
+    }
+    let temp = this.head;
+    this.head = this.head.next;
+    temp.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return temp;
+  }
 }
 function textShift() {
-  console.log("\Shift() function:");
+  console.log("Shift() function:");
 
   let myLinkedList = new LinkedList(2);
   myLinkedList.push(1);
@@ -134,6 +147,46 @@ function textShift() {
   // (0) Items in LL - Returns null
   if (myLinkedList.length !== 0) {
     console.log(myLinkedList.shift().value);
+  } else {
+    console.log("null");
+  }
+
+  console.log("Shift() function MY CODE:");
+
+  let myLinkedListCode = new LinkedList(5);
+  myLinkedListCode.push(1);
+  myLinkedListCode.push(10);
+  myLinkedListCode.push(7);
+
+  // (2) Items in LL - Returns 2 Node
+  if (myLinkedListCode.length !== 0) {
+    console.log(myLinkedListCode.shiftMyCode().value);
+  } else {
+    console.log("null");
+  }
+
+  // (1) Item in LL - Returns 1 Node
+  if (myLinkedListCode.length !== 0) {
+    console.log(myLinkedListCode.shiftMyCode().value);
+  } else {
+    console.log("null");
+  }
+
+  // (0) Items in LL - Returns null
+  if (myLinkedListCode.length !== 0) {
+    console.log(myLinkedListCode.shiftMyCode().value);
+  } else {
+    console.log("null");
+  }
+  // (0) Items in LL - Returns null
+  if (myLinkedListCode.length !== 0) {
+    console.log(myLinkedListCode.shiftMyCode().value);
+  } else {
+    console.log("null");
+  }
+  // (0) Items in LL - Returns null
+  if (myLinkedListCode.length !== 0) {
+    console.log(myLinkedListCode.shiftMyCode().value);
   } else {
     console.log("null");
   }
