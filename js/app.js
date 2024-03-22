@@ -92,6 +92,38 @@ class LinkedList {
     this.length++;
     return this;
   }
+
+  shift() {
+    if (!this.head) {
+      return null;
+    }
+    let temp = this.head.next;
+  }
+}
+function textShift() {
+  let myLinkedList = new LinkedList(2);
+  myLinkedList.push(1);
+
+  // (2) Items in LL - Returns 2 Node
+  if (myLinkedList.length !== 0) {
+    console.log(myLinkedList.shift().value);
+  } else {
+    console.log("null");
+  }
+
+  // (1) Item in LL - Returns 1 Node
+  if (myLinkedList.length !== 0) {
+    console.log(myLinkedList.shift().value);
+  } else {
+    console.log("null");
+  }
+
+  // (0) Items in LL - Returns null
+  if (myLinkedList.length !== 0) {
+    console.log(myLinkedList.shift().value);
+  } else {
+    console.log("null");
+  }
 }
 
 function test2() {
@@ -147,3 +179,4 @@ function test() {
 
 test();
 test2();
+textShift();
