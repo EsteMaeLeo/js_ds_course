@@ -125,6 +125,16 @@ class LinkedList {
   }
 
   get(index) {
+    if (index < 0 || index >= this.length) {
+      return undefined;
+    }
+    let temp = this.head;
+    for (let i = 0; i < index; i++) {
+      temp = temp.next;
+    }
+    return temp;
+  }
+  getMyCode(index) {
     if (!this.head) {
       return null;
     }
@@ -145,7 +155,6 @@ function testGet() {
   let myLinkedList = new LinkedList(0);
   console.log("GET() function:");
 
- 
   myLinkedList.push(1);
   myLinkedList.push(2);
   myLinkedList.push(3);
@@ -155,7 +164,6 @@ function testGet() {
 
   console.log(myLinkedList.get(3).value);
 }
-
 
 function textShift() {
   console.log("Shift() function:");
@@ -279,4 +287,4 @@ function test() {
 test();
 test2();
 textShift();
-testGet() 
+testGet();
