@@ -123,6 +123,10 @@ class LinkedList {
     }
     return temp;
   }
+
+  get(index){
+    
+  }
 }
 function textShift() {
   console.log("Shift() function:");
