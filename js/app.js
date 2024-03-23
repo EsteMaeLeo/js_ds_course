@@ -130,7 +130,7 @@ class LinkedList {
     }
     let temp = this.head;
     let i = 0;
-    while (temp.next && index < i) {
+    while (temp.next && i < index) {
       if (i === index) {
         break;
       }
@@ -140,6 +140,23 @@ class LinkedList {
     return temp;
   }
 }
+
+function testGet() {
+  let myLinkedList = new LinkedList(0);
+  console.log("GET() function:");
+
+ 
+  myLinkedList.push(1);
+  myLinkedList.push(2);
+  myLinkedList.push(3);
+  myLinkedList.getHead();
+  myLinkedList.getTail();
+  myLinkedList.getLength();
+
+  console.log(myLinkedList.get(3).value);
+}
+
+
 function textShift() {
   console.log("Shift() function:");
 
@@ -262,3 +279,4 @@ function test() {
 test();
 test2();
 textShift();
+testGet() 
