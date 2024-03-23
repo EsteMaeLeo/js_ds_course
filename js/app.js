@@ -124,8 +124,20 @@ class LinkedList {
     return temp;
   }
 
-  get(index){
-    
+  get(index) {
+    if (!this.head) {
+      return null;
+    }
+    let temp = this.head;
+    let i = 0;
+    while (temp.next && index < i) {
+      if (i === index) {
+        break;
+      }
+      temp = temp.next;
+      i++;
+    }
+    return temp;
   }
 }
 function textShift() {
