@@ -160,7 +160,7 @@ class LinkedList {
   }
 
   insert(index, value) {
-    if(index < 0 || index > this.length){
+    if (index < 0 || index > this.length) {
       return false;
     }
     if (index === 0) {
@@ -169,12 +169,11 @@ class LinkedList {
       return this.push(value);
     }
     const newNode = new Node(value);
-    let nodeIndex = this.get(index);
     let nodeBefore = this.get(index - 1);
-    newNode.next = nodeIndex;
+    newNode.next = nodeBefore.next;
     nodeBefore.next = newNode;
     this.length++;
-    //console.log(nodeIndex.value, nodeBefore.value);
+    return true;
   }
 }
 
