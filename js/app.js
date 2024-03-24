@@ -158,6 +158,47 @@ class LinkedList {
     }
     return false;
   }
+
+  insert(index, value) {
+    if (index === 0) {
+      this.unshift(value);
+      return true;
+    } else if (index === this.length) {
+      this.push(value);
+      return true;
+    }
+    const newNode = new Node(value);
+    let nodeIndex = this.get(index);
+    let indexBefore = index - 1;
+    let nodeBefore = this.get(indexBefore);
+    newNode.next = nodeIndex;
+    nodeBefore.next = newNode;
+    this.length++;
+    //console.log(nodeIndex.value, nodeBefore.value);
+  }
+}
+
+function testInsert() {
+  let myLinkedList = new LinkedList(1);
+  myLinkedList.push(3);
+
+  console.log("LL before insert():");
+  myLinkedList.printList();
+
+  myLinkedList.insert(1, 2);
+
+  console.log("\nLL after insert(2) in middle:");
+  myLinkedList.printList();
+
+  myLinkedList.insert(0, 0);
+
+  console.log("\nLL after insert(0) at beginning:");
+  myLinkedList.printList();
+
+  myLinkedList.insert(4, 4);
+
+  console.log("\nLL after insert(4) at end:");
+  myLinkedList.printList();
 }
 
 function testSet() {
@@ -308,8 +349,9 @@ function test() {
   }
 }
 
-test();
+/*test();
 test2();
 textShift();
 testGet();
-testSet();
+testSet();*/
+testInsert();
