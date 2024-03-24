@@ -154,7 +154,9 @@ class LinkedList {
     let setNode = this.get(index);
     if (setNode) {
       setNode.value = value;
+      return true;
     }
+    return false;
   }
 }
 
