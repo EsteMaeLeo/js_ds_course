@@ -160,17 +160,17 @@ class LinkedList {
   }
 
   insert(index, value) {
+    if(index < 0 || index > this.length){
+      return false;
+    }
     if (index === 0) {
-      this.unshift(value);
-      return true;
+      return this.unshift(value);
     } else if (index === this.length) {
-      this.push(value);
-      return true;
+      return this.push(value);
     }
     const newNode = new Node(value);
     let nodeIndex = this.get(index);
-    let indexBefore = index - 1;
-    let nodeBefore = this.get(indexBefore);
+    let nodeBefore = this.get(index - 1);
     newNode.next = nodeIndex;
     nodeBefore.next = newNode;
     this.length++;
