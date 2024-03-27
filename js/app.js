@@ -181,16 +181,16 @@ class LinkedList {
       return undefined;
     }
     if (index === 0) {
-      return this.shift(value);
+      return this.shift();
     } else if (index === this.length) {
-      return this.pop(value);
+      return this.pop();
     }
     let nodeBefore = this.get(index - 1);
     let nodeTmp = nodeBefore.next;
-    nodeBefore.next = temp.next;
-    temp.next = null;
+    nodeBefore.next = nodeTmp.next;
+    nodeTmp.next = null;
     this.length--;
-    return temp;
+    return nodeTmp;
   }
 
   reverse() {
@@ -203,7 +203,31 @@ class LinkedList {
   }
 }
 
-function testRemove(){}
+function testRemove(){
+  let myLinkedList = new LinkedList(1);
+  myLinkedList.push(2);
+  myLinkedList.push(3);
+  myLinkedList.push(4);
+  myLinkedList.push(5);
+
+  console.log("LL before remove():");
+  myLinkedList.printList();
+
+  console.log("\nRemoved node:");
+  console.log(myLinkedList.remove(2).value);
+  console.log("LL after remove() in middle:");
+  myLinkedList.printList();
+
+  console.log("\nRemoved node:");
+  console.log(myLinkedList.remove(0).value);
+  console.log("LL after remove() of first node:");
+  myLinkedList.printList();
+
+  console.log("\nRemoved node:");
+  console.log(myLinkedList.remove(2).value);
+  console.log("LL after remove() of last node:");
+  myLinkedList.printList();
+}
 
 function testInsert() {
   let myLinkedList = new LinkedList(1);
@@ -380,5 +404,7 @@ function test() {
 test2();
 textShift();
 testGet();
-testSet();*/
+testSet();
 testInsert();
+*/
+testRemove();
