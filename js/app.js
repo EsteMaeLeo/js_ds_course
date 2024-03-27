@@ -175,7 +175,35 @@ class LinkedList {
     this.length++;
     return true;
   }
+
+  remove(index) {
+    if (index < 0 || index > this.length) {
+      return undefined;
+    }
+    if (index === 0) {
+      return this.shift(value);
+    } else if (index === this.length) {
+      return this.pop(value);
+    }
+    let nodeBefore = this.get(index - 1);
+    let nodeTmp = nodeBefore.next;
+    nodeBefore.next = temp.next;
+    temp.next = null;
+    this.length--;
+    return temp;
+  }
+
+  reverse() {
+    let temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+
+    let next = temp.next;
+    let prev = null;
+  }
 }
+
+function testRemove(){}
 
 function testInsert() {
   let myLinkedList = new LinkedList(1);
